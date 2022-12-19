@@ -1,0 +1,78 @@
+#include <stdio.h>
+#define x 10
+
+int main()
+{   
+    int vetor1[x];
+    int cont,soma=0,v2=0,v3=0,i=0,y=0;
+    float media;
+    
+    printf("Digite 35 numeros inteiros, apos cada numero digitado aperte 'ENTER'.\n\n");
+    for(cont=0;cont < x;cont++)// entrada de Dados.
+    {
+        printf("N° %d = ",cont+1);
+        scanf("%d",&vetor1[cont]);
+    }
+    //********************************************************************************
+    for(cont=0;cont < x;cont++)//calculo para média.
+    {
+        soma=soma+vetor1[cont];
+    }
+    media=(float)soma/cont;
+    
+    //********************************************************************************
+    for(cont=0;cont < x;cont++)//Criando vetor2 
+    {
+        if(vetor1[cont] > media)
+        {
+            v2++;
+        }
+    }
+    int vetor2[v2]; // declaração vetor2
+    
+    //********************************************************************************
+    for(cont=0;cont < x;cont++)//Criando vetor3 
+    {
+        if(vetor1[cont] < media)
+        {
+            v3++;
+        }
+    }
+    int vetor3[v3]; // declaração vetor3
+    
+    //********************************************************************************
+    for(cont=0;cont < x;cont++) //transferindo maiosres que a média. 
+    {
+        if(vetor1[cont] > media)
+        {
+            vetor2[i]=vetor1[cont];
+            i++;
+        }
+    }
+    //********************************************************************************
+    for(cont=0;cont < x;cont++)// transferindo menores que a média.
+        if(vetor1[cont] < media)
+        {
+            vetor3[y]=vetor1[cont];
+            y++;
+        }
+    
+    //********************************************************************************
+    // Mostrando vetores:
+    printf("Vetor Lido = ");
+    for(cont=0;cont < x ;cont++)
+    {
+        printf("'%d",vetor1[cont]);
+    }
+    printf("\nVetor 2 = ");
+    for(cont=0;cont < v2 ;cont++)
+    {
+        printf("'%d",vetor2[cont]);
+    }
+    printf("\nVetor 3 = ");
+    for(cont=0;cont < v3 ;cont++)
+    {
+        printf("'%d",vetor3[cont]);
+    }
+    return 0;
+}
